@@ -1,0 +1,16 @@
+
+>
+java:S1643i"Use a StringBuilder instead.(ù°ÉÌûÿÿÿÿ8˜‡’´õ0
+>
+java:S1643k"Use a StringBuilder instead.(ÒéûÚÿÿÿÿÿ8˜‡’´õ0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”™Û©8˜‡’´õ0
+T
+java:S1135"2Complete the task associated to this TODO comment.(ÇÖíÍûÿÿÿÿ8àı±´õ0
+F
+java:S1905'")Remove this unnecessary cast to "double".(ÒÌãé8»ˆ’´õ0
+F
+java:S1905)")Remove this unnecessary cast to "double".(ÒÌãé8»ˆ’´õ0
+K
+java:S1905.")Remove this unnecessary cast to "double".(ê¥ã›şÿÿÿÿ8Ë¯´õ0
+W	java:S125{"<This block of commented-out lines of code should be removed.( ¿Š]8»ˆ’´õ0
+^	java:S125†"<This block of commented-out lines of code should be removed.(Ìøœóÿÿÿÿÿ8»ˆ’´õ0
