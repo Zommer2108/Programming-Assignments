@@ -1,17 +1,0 @@
-
-7
-java:S1643i"Use a StringBuilder instead.(ù°ÉÌûÿÿÿÿ
-7
-java:S1643k"Use a StringBuilder instead.(ÒéûÚÿÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”™Û©
-M
-java:S1135"2Complete the task associated to this TODO comment.(ÇÖíÍûÿÿÿÿ
-?
-java:S1905'")Remove this unnecessary cast to "double".(ÒÌãé
-?
-java:S1905)")Remove this unnecessary cast to "double".(ÒÌãé
-D
-java:S1905.")Remove this unnecessary cast to "double".(ê¥ã›şÿÿÿÿ
-P	java:S125{"<This block of commented-out lines of code should be removed.( ¿Š]
-W	java:S125†"<This block of commented-out lines of code should be removed.(Ìøœóÿÿÿÿÿ
-O	java:S106•"9Replace this use of System.out or System.err by a logger.(˜ÀÌŞ
