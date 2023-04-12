@@ -1,4 +1,4 @@
-package Aufgabe_1;
+package Aufgabe_1.b;
 
 public class Quersumme_b {
 
@@ -20,11 +20,11 @@ public class Quersumme_b {
          */
 
         //Klassenmethode
-        System.out.println("Quersumme von " + args[0] + " ist: " + quersumme(args[0]));
+        System.out.println("Quersumme von " + args[0] + " ist: " + quersumme(Integer.parseInt(args[0])));
 
         //"gewöhnliche" Methode
         Quersumme_b quersumme = new Quersumme_b();
-        System.out.println(quersumme(args[0]));
+        System.out.println(quersumme(Integer.parseInt(args[0])));
 
     }
 }
