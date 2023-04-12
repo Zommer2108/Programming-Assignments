@@ -13,33 +13,81 @@ public class Quersumme {
         return quersumme;
     }
 
-
     static String quersummeHex(String eingabeZahl) {
+        int digitSum = 0;
+        char[] eingabeZahlLiterale = eingabeZahl.toCharArray();
 
+        //Checks if calculating number is a hex number if not we can directly form the digit sum
         if (checkIfHexNumber(eingabeZahlLiterale)) {
-            char[] eingabeZahlLiterale = new char[eingabeZahl.length()];
 
-            for (int i = 0; i < eingabeZahlLiterale.length - 1; i++) {
-                eingabeZahlLiterale[i] = eingabeZahl.charAt(i);
+            for (int i = 0; i < eingabeZahlLiterale.length; i++) {
+
+                //Checking if the digit is a letter or digit for proper calculations
+                if (Character.isLetter(eingabeZahlLiterale[i])) {
+                    digitSum += returnNumberFromHex(eingabeZahlLiterale[i]);
+
+                } else {
+                    digitSum += Character.digit(eingabeZahlLiterale[i], 16);
+                }
             }
 
-            /*
-            TODO Hier weitermachen, ausrechnen des Wertes der Hexa-
-            dezimalzahl und hinzufügen zu einem neuer Quersumme die
-            wieder in eine Hexadezimalzahl umgeformt werden soll.
-             */
-            int digitPosition = 0;
-            for(int j = eingabeZahlLiterale.length-1; j >= 0; j--){
-                if(eingabeZahlLiterale[digitPosition])
-            }
+        } else {
+
+            digitSum = quersumme(Integer.parseInt(eingabeZahl));
         }
 
-        int quersumme = quersumme(Integer.parseInt(eingabeZahl));
-        return transformToHexNumber(quersumme);
+        return Integer.toHexString(digitSum).toUpperCase();
     }
 
-    static boolean checkIfHexNumber(char[] charArray) {
-        for (int i = 0; i < charArray.length - 1; i++) {
+    /**
+     * Method to return the numeric value of hex numbers.
+     * Was too lazy to remove it, there are easier ways.
+     * Like subtracting character - 55
+     *
+     * @param character is the input to decide which numeric value to get
+     * @return returns either the value when it is not a char or the numeric value of the corresponding char
+     */
+    private static int returnNumberFromHex(char character) {
+        int returnValue = 0;
+
+        switch (character) {
+            case ('A'):
+                returnValue = 10;
+                break;
+
+            case ('B'):
+                returnValue = 11;
+                break;
+
+            case ('C'):
+                returnValue = 12;
+                break;
+
+            case ('D'):
+                returnValue = 13;
+                break;
+
+            case ('E'):
+                returnValue = 14;
+                break;
+
+            case ('F'):
+                returnValue = 15;
+                break;
+            default:
+                return returnValue;
+        }
+        return returnValue;
+    }
+
+    /**
+     * Checks if the char array includes at least one character
+     *
+     * @param charArray array that is going to be checked
+     * @return true when there is a char found, false if it does not
+     */
+    private static boolean checkIfHexNumber(char[] charArray) {
+        for (int i = 0; i < charArray.length; i++) {
             if (Character.isLetter(charArray[i])) {
                 return true;
             }
@@ -47,60 +95,37 @@ public class Quersumme {
         return false;
     }
 
-    static String transformToHexNumber(int calcNumber) {
-        int counter = 0;
-        int[] hexNumber = new int[lengthInteger(calcNumber)];
-        String returnValue = "";
-
-        while (calcNumber != 0) {
-            hexNumber[counter] = calcNumber % 16;
-            calcNumber /= 16;
-            counter++;
-        }
-
-        for (int i = hexNumber.length - 1; i >= 0; i--) {
-            if (hexNumber[i] > 9) {
-                returnValue += (55 + hexNumber[i]);
-            }
-            returnValue += hexNumber[i];
-        }
-        return returnValue;
-    }
-
-    static int lengthInteger(int integer) {
-        int lengthCounter = 0;
-        while (integer != 0) {
-            integer /= 10;
-            lengthCounter++;
-        }
-        return lengthCounter;
-    }
-
     public static void main(String[] args) {
 
         Scanner userInput = new Scanner(System.in);
-        System.out.print("Zu berechnende Zahl: ");
-        int zahl = userInput.nextInt();
+        String hexZahl;
+        int zahl = 0;
+        int quit = 0;
+        int modus = 0;
 
-        /*
-        Es macht mehr sinn eine Klassenmethode zu verwenden, da die Zahl unabhängig von
-        der Instanz berechnet werden kann. Man braucht nicht für jede Zahl ein Objekt zu erstellen sondern kann bzw.
-        sollte sie direkt berechnen können
-         */
 
-        //Klassenmethode
-        System.out.println("Quersumme von " + zahl + " ist: " + quersumme(zahl));
+        System.out.println("Das ist der Quersummenrechner");
+        System.out.println("Geben Sie (1) ein wenn Sie die Quersumme einer Dezimalzahl berechnen wollen \n" +
+            "Geben Sie (2) ein wenn Sie die Quersumme als Hexadezimalzahl wollen (die Eingabe nimmt auch Dezimalzahlen entgegen!");
+        System.out.print("Eingabe: ");
+        modus = userInput.nextInt();
 
-        //"gewöhnliche" Methode
-        Quersumme quersumme = new Quersumme();
-        System.out.println(quersumme(zahl));
-
-        System.out.print("Zu berechende Hexadezimalzahl eingeben: ");
-        String hexZahl = userInput.next();
-        System.out.println("Quersumme von " + hexZahl + "HEX ist: " + quersummeHex(hexZahl));
-
+        switch (modus) {
+            case 1:
+                System.out.print("Bitte geben Sie die Zahl für die Berechnung der Quersumme ein: ");
+                zahl = userInput.nextInt();
+                System.out.println("Quersumme von " + zahl + " ist: " + quersumme(zahl));
+                break;
+            case 2:
+                System.out.print("Bitte geben Sie die Hexadezimal- oder Dezimalzahl \n" +
+                    " für die Berechnung der Quersumme ein: ");
+                hexZahl = userInput.next();
+                System.out.println("Quersumme von " + hexZahl + "HEX ist: " + quersummeHex(hexZahl));
+                break;
+            default:
+                System.out.printf("Ungültige Eingabe!");
+                break;
+        }
         userInput.close();
-
-
     }
 }
