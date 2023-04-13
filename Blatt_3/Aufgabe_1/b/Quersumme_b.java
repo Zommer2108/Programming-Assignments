@@ -24,7 +24,7 @@ public class Quersumme_b {
 
         //"gewöhnliche" Methode
         Quersumme_b quersumme = new Quersumme_b();
-        System.out.println(quersumme(Integer.parseInt(args[0])));
+        System.out.println("Quersumme von " + args[0] + " ist: " + quersumme(Integer.parseInt(args[0])));
 
     }
 }
