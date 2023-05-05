@@ -1,6 +1,6 @@
 package IntList;
 
-public class IntList {
+public class DoublyLinkedIntList {
     private ListNode first;
     private ListNode last;
     private int size;
@@ -95,22 +95,18 @@ public class IntList {
         return new Iterator();
     }
 
-    public class Iterator implements java.util.Iterator<Integer> {
+    public class Iterator {
         private ListNode current = first;
 
         public boolean hasNext() {
             return current != null;
         }
 
-        public Integer next() {
+        public int next() {
             int value = current.value;
             current = current.next;
             return value;
         }
     }
-
-	public void reverse() {
-		// TODO Auto-generated method stub
-		
-	}
 }
+

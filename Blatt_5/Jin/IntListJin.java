@@ -1,9 +1,7 @@
-package IntList;
-
-public class IntList {
+public class IntListJin {
     private ListNode first;
     private ListNode last;
-    private int size;
+    private int size = 0;
 
     private class ListNode {
         int value;
@@ -41,21 +39,26 @@ public class IntList {
 
     public void remove(int x) {
         ListNode current = first;
-        while (current != null && current.value != x) {
+        int s = size;
+        for (int i=1; i<=s; i++) {
+
+            if (current != null && current.value == x) {
+                if (current == first) {
+                    first = current.next;
+                    size--;
+                } else {
+                    current.prev.next = current.next;
+                    size--;
+                }
+                if (current == last && current.value == x) {
+                    last = current.prev;
+                    size--;
+                } else {
+                    current.next.prev = current.prev;
+                    size--;
+                }
+            }
             current = current.next;
-        }
-        if (current != null) {
-            if (current == first) {
-                first = current.next;
-            } else {
-                current.prev.next = current.next;
-            }
-            if (current == last) {
-                last = current.prev;
-            } else {
-                current.next.prev = current.prev;
-            }
-            size--;
         }
     }
 
@@ -109,8 +112,4 @@ public class IntList {
         }
     }
 
-	public void reverse() {
-		// TODO Auto-generated method stub
-		
-	}
 }
