@@ -1,58 +1,69 @@
-package Aufgabe_1;
-
+package Complex;
 public class Complex {
-    private double aDouble, bDouble;
-    private String singleExpression;
+    private double real;
+    private double imag;
 
-
+    // Constructors
     public Complex() {
-
+        real = 0.0;
+        imag = 0.0;
     }
 
-    public Complex(double aDouble, double bDouble) {
-        this.aDouble = aDouble;
-        this.bDouble = bDouble;
-        char imaginaryNumber = 'i';
-        this.singleExpression = this.aDouble + "+" + this.bDouble + imaginaryNumber;
+    public Complex(double r, double i) {
+        real = r;
+        imag = i;
     }
 
-
-    Complex add(Complex other) {
-        double realPart = this.aDouble + other.aDouble;
-        double imaginayPart = this.bDouble + other.bDouble;
-        return new Complex(realPart, imaginayPart);
+    // Getter and setter methods
+    public double getReal() {
+        return real;
     }
 
-    Complex sub(Complex other) {
-        double realPart = this.aDouble - other.aDouble;
-        double imaginayPart = this.bDouble - other.bDouble;
-        return new Complex(realPart, imaginayPart);
+    public double getImag() {
+        return imag;
     }
 
-
-    Complex mul(Complex other) {
-        double realPart = this.aDouble * other.aDouble - this.bDouble * other.bDouble;
-        double imaginayPart = this.aDouble * other.bDouble + this.bDouble * other.aDouble;
-        return new Complex(realPart, imaginayPart);
+    public void setReal(double r) {
+        real = r;
     }
 
-
-    Complex div(Complex other) {
-        double realPart = (this.aDouble * other.aDouble + this.bDouble * other.bDouble / Math.pow(other.aDouble, 2)) + (Math.pow(
-            other.bDouble, 2));
-        double imaginayPart = (this.bDouble * other.aDouble - this.aDouble * other.bDouble) / (Math.pow(other.aDouble, 2) + Math.pow(
-            other.bDouble, 2));
-        return new Complex(realPart, imaginayPart);
-    }
-    public boolean equals(Complex other) {
-        if(aDouble == other.aDouble && bDouble == other.bDouble){
-            return true;
-        }
-        return false;
+    public void setImag(double i) {
+        imag = i;
     }
 
-    @Override
+    // Arithmetic operations
+    public Complex add(Complex other) {
+        double r = real + other.real;
+        double i = imag + other.imag;
+        return new Complex(r, i);
+    }
+
+    public Complex sub(Complex other) {
+        double r = real - other.real;
+        double i = imag - other.imag;
+        return new Complex(r, i);
+    }
+
+    public Complex mul(Complex other) {
+        double r = real * other.real - imag * other.imag;
+        double i = real * other.imag + imag * other.real;
+        return new Complex(r, i);
+    }
+
+    public Complex div(Complex other) {
+        double denom = other.real * other.real + other.imag * other.imag;
+        double r = (real * other.real + imag * other.imag) / denom;
+        double i = (imag * other.real - real * other.imag) / denom;
+        return new Complex(r, i);
+    }
+
+    // Override toString() method
     public String toString() {
-        return singleExpression.toString();
+        return "(" + real + " + " + imag + "i)";
+    }
+
+    // Override equals() method
+    public boolean equals(Complex other) {
+        return (real == other.real) && (imag == other.imag);
     }
 }
