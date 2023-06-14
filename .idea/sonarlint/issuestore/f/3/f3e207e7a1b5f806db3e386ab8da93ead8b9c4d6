@@ -1,9 +1,0 @@
-
-B
-java:S1659"%Declare "bDouble" on a separate line.(Åê±ü8 şÍŒü0
-w
-java:S1201/"UEither override Object.equals(Object), or rename the method to prevent any confusion.(Åˆ’Ñüÿÿÿÿ8«şÍŒü0
-^
-java:S11260"AReplace this if-then-else statement by a single return statement.(›î‘‡8«şÍŒü0
-u
-java:S18588"S"singleExpression" is already a string, there's no need to call "toString()" on it.(ÏÀÜÚÿÿÿÿÿ8«şÍŒü0
