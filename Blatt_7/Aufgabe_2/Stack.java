@@ -40,4 +40,11 @@ public interface Stack<E> {
      * @return the number of elements
      */
     int size();
+
+    /**
+     * Just a change to the source file to test github
+     *
+     *
+     */
+    int testMEthod();
 }
